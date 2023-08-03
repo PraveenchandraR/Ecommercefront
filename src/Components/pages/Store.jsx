@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import iphone from "./../../Images/iphone_6_plus.png";
 import "./../Styles/Store.css";
-import { Slider } from '@mui/material';
+// import { Slider } from '@mui/material';
 import axios from 'axios';
 // import Card from './Card';
 import queryString from 'query-string';
@@ -13,35 +13,34 @@ const Store = () => {
     // eslint-disable-next-line
     const [cards,setCards] = useState([]);
     // eslint-disable-next-line
-    const [NoOfItems,setNoOfItems] = useState();
-    const [SortBy, setSortBy] = useState("");
-    const [Show, setShow] = useState("");
-    const [Price,setPrice] = useState(100);
-    const [queryParams,setQueryParams] = useState({});
+    // const [NoOfItems,setNoOfItems] = useState();
+    // const [SortBy, setSortBy] = useState("");
+    // const [Show] = useState("");
+    // const [Price] = useState(100);
+    const [queryParams] = useState({});
 
-    const handleSortBy = (event) => {
-        setSortBy(event.target.value);
+    // const handleSortBy = (event) => {
+    //     setSortBy(event.target.value);
 
-    }
-    const handleShow = (event) => {
-        setShow(event.target.value);
-        updateQueryParams();
+    // }
+    // const handleShow = (event) => {
+    //     setShow(event.target.value);
+    //     updateQueryParams();
 
-    }
+    // }
 
-    const handlePrice = (e,data) =>{
-        setPrice(data);
-        updateQueryParams();
-    }
+    // const handlePrice = (e,data) =>{
+    //     setPrice(data);
+    //     updateQueryParams();
+    // }
 
-    const updateQueryParams = () => {
-        setQueryParams({
-            'price[lte]':Price,
-            'limit':Show
-        });
+    // const updateQueryParams = () => {
+    //     setQueryParams({
+    //         'price[lte]':Price,
+    //         'limit':Show
+    //     });
 
-        // console.log("queryParams",queryString.stringify(queryParams));
-    }
+    // }
 
     useEffect(()=>{
         // console.log("queryString.stringify(queryParams)",queryString.stringify(queryParams));
@@ -52,11 +51,11 @@ const Store = () => {
         .then((res)=>{
             // console.log(res);
             setCards(res.data.Products);
-            setNoOfItems(res.data.Products.length);
+            // setNoOfItems(res.data.Products.length);
         })
         .catch()
         // eslint-disable-next-line
-    },[Show,Price])
+    })
 
   return (
     <div className="StoreContainer">
@@ -65,13 +64,13 @@ const Store = () => {
             <h3>iPhone 6 Plus</h3>
             <p>Performance and design. Taken right to the edge.</p>
         </div>
-        <div className='HeaderAndSliderContainer'>
-            <div className='divSliderPrice'>
+        {/* <div className='HeaderAndSliderContainer'> */}
+            {/* <div className='divSliderPrice'>
                 <h4>Price</h4>
                 <p>Ranger:</p>
                 <Slider  value={Price} onChange={handlePrice} defaultValue={100}  min={10} max={1000}/>
-            </div>
-            <header>
+            </div> */}
+            {/* <header>
                 <div>{NoOfItems} Items</div>
                 <div>
                     <label htmlFor="dropdownSortBy">Sort By</label>    
@@ -88,8 +87,8 @@ const Store = () => {
                     </select>
                 </div>
             </header>
-            
-        </div>
+             */}
+        {/* </div> */}
         <div className="MainContainer">
             <div className="flex-containerLoadMore">
             {
@@ -107,4 +106,4 @@ const Store = () => {
   )
 }
 
-export default Store
+export default Store;

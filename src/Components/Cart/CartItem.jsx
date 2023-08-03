@@ -60,7 +60,7 @@ console.log("Before setQty call prev Qty==>",Qty);
        setQty(0);
    }
 }
-
+// const totalPrice = Item.reduce((total, Item) => total + Item.price * Item.Qty, 0);
 
 return (
   Qty > 0 && (
@@ -79,7 +79,7 @@ return (
   </button>
 </div>
 <div> <h3 className="gridItem1">{Item.price * Qty}</h3></div>
-
+{/* <div> <h3 className="gridItem1">{totalPrice}</h3></div> */}
 
 
 </React.Fragment>        )
